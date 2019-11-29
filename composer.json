@@ -1,0 +1,13 @@
+{
+    "name": "adhityairvan/fp",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Adhitya Irvansyah",
+            "email": "adhityairvan@yahoo.com"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^2.25"
+    }
+}
