@@ -1,6 +1,40 @@
 <?php
+$role = [
+    'Guests',
+    'Karyawan',
+    'Pemilik',
+];
+$resources = [
+    'auth' => [
+        'showLogin',
+        'login',
+        'showRegister',
+        'register',
+        'logout',
+    ],
+    'item' => [
+        'index',
+        'create',
+        'new',
+        'updateStock',
+        'edit',
+        'update',
+        'delete',
+        'listItem',
+    ],
+    'transaction' => [
+        'index',
+        'create',
+        'store',
+        'delete',
+    ],
+    'home' => [
+        'index',
+    ]
+];
 
-$roles = [
+
+$allowed = [
     'Guests' => [
         'auth' => [
             'showLogin',
@@ -9,15 +43,26 @@ $roles = [
             'register',
         ],
     ],
-    'LoggedIn' => [
+    'Karyawan' => [
         'item' => [
             'index',
             'create',
             'new',
-            'updateStock'
+            'updateStock',
+            'listItem',
         ],
         'transaction' => [
             'index',
+            'create',
+            'store',
         ],
+    ],
+    'Pemilik' => [
+        'item' => [
+            '*',
+        ],
+        'transaction' => [
+            '*'
+        ]
     ]
 ];
