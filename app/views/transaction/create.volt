@@ -129,6 +129,7 @@
                     body: JSON.stringify({ cart: data }),
                     headers: {'Content-Type': 'application/json', 'X-CSRF-TOKEN': "XXXX" }
                 }).then(response => {
+                    console.log(response);
                     if (!response.ok) {
                         alert("ERROR HAPPENED");
                     }

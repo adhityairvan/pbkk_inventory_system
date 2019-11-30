@@ -41,9 +41,9 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item  active">
-        <a class="nav-link" href="/home">
+        <a class="nav-link" href="/transaction/create">
             <i class="fas fa-fw fa-barcode"></i>
-            <span>Transaction</span></a>
+            <span>Transaction Create</span></a>
     </li>
 
     <li class="nav-item">
@@ -317,6 +317,7 @@
                     body: JSON.stringify({ cart: data }),
                     headers: {'Content-Type': 'application/json', 'X-CSRF-TOKEN': "XXXX" }
                 }).then(response => {
+                    console.log(response);
                     if (!response.ok) {
                         alert("ERROR HAPPENED");
                     }

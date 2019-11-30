@@ -55,8 +55,8 @@ class TransactionsItem extends \Phalcon\Mvc\Model
     {
         $this->setSchema("pbkk_fp");
         $this->setSource("transactions_item");
-        $this->hasOne('items_id', 'Items', 'id');
-        $this->belongsTo('transactions_id', 'Transactions', 'id');
+        $this->hasOne('items_id', Items::class, 'id', ['alias' => 'Items']);
+        $this->belongsTo('transactions_id', Transactions::class, 'id', ['alias' => 'Transactions']);
     }
 
     /**

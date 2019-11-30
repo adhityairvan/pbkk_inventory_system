@@ -43,8 +43,8 @@ class Transactions extends \Phalcon\Mvc\Model
     {
         $this->setSchema("pbkk_fp");
         $this->setSource("transactions");
-        $this->hasMany('id', 'TransactionsItem', 'transactions_id');
-        $this->belongsTo('created_by', 'Users', 'id');
+        $this->hasMany('id', TransactionsItem::class, 'transactions_id', ['alias' => 'Items']);
+        $this->belongsTo('created_by', Users::class, 'id', ['alias' => 'Users']);
     }
 
     /**
