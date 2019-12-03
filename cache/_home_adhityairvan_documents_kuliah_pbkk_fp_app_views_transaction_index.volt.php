@@ -48,7 +48,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/transaction/list">
+        <a class="nav-link" href="/transaction/">
             <i class="fas fa-fw fa-list-alt"></i>
             <span>Transaction List</span></a>
     </li>
@@ -150,8 +150,11 @@
                     <td><?= $transaction->id ?></td>
                     <td><?= $transaction->total_harga ?></td>
                     <td><?= $transaction->users->email ?></td>
-                    <td><?= $transaction->created_at ?></td>
-                    <td><button class="btn btn-danger" type="button" data-toggle="modal" data-target="#deleteModal" data-unique="<?= $transaction->id ?>">Delete</button> </td>
+                    <td><?= $transaction->created_at->toDateString() ?></td>
+                    <td>
+                        <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#deleteModal" data-unique="<?= $transaction->id ?>">Delete</button>
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#itemModal" data-unique="<?= $transaction->id ?>">Items</button>
+                    </td>
                 </tr>
                 <?php } ?>
                 <tbody>
@@ -188,6 +191,34 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-danger" form="deleteForm">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="itemModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>Item Name</tr>
+                        <tr>qty</tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>
@@ -269,7 +300,7 @@
             const modal = $(this);
             modal.find('#deleteModalLabel').text('Delete Transaction '+unique);
             modal.find('#deleteInput').val(unique);
-        })
+        });
     });
 </script>
 

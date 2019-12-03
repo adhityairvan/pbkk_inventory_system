@@ -36,4 +36,9 @@ $router->addPost('/register', [
     'action' => 'register',
 ]);
 
+$router->addPost('/logout', [
+    'controller' => 'auth',
+    'action' => 'logout',
+]);
+
 $router->handle();

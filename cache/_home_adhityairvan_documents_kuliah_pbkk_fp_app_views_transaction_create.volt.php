@@ -47,7 +47,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/transaction/list">
+        <a class="nav-link" href="/transaction/">
             <i class="fas fa-fw fa-list-alt"></i>
             <span>Transaction List</span></a>
     </li>
@@ -136,6 +136,7 @@
             <hr>
             <h3>New Transaction</h3>
             <h5>Add new Item to transaction ${ tipeBarang }</h5>
+            <?= $this->partial('partials/flash') ?>
             <div class="row">
                 <div class="form-group col">
                     <label for="tipeBarang">Tipe Barang</label>

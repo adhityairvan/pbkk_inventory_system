@@ -28,7 +28,7 @@ class Transactions extends \Phalcon\Mvc\Model
      *
      * @var string
      */
-    public $created_at;
+    protected $created_at;
 
     /**
      *
@@ -77,6 +77,10 @@ class Transactions extends \Phalcon\Mvc\Model
     public static function findFirst($parameters = null)
     {
         return parent::findFirst($parameters);
+    }
+
+    public function getCreatedAt(){
+        return new Carbon($this->created_at);
     }
 
     public function beforeCreate() {

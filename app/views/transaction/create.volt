@@ -7,6 +7,7 @@
             <hr>
             <h3>New Transaction</h3>
             <h5>Add new Item to transaction ${ tipeBarang }</h5>
+            {{ partial('partials/flash') }}
             <div class="row">
                 <div class="form-group col">
                     <label for="tipeBarang">Tipe Barang</label>

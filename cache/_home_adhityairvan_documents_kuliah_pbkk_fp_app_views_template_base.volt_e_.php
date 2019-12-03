@@ -18,7 +18,7 @@ a:11:{i:0;s:307:"<!DOCTYPE html>
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.css" rel="stylesheet">
     ";s:3:"css";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:5:"
-    ";s:4:"file";s:72:"/home/adhityairvan/Documents/Kuliah/pbkk/FP/app/views/template/base.volt";s:4:"line";i:21;}}i:2;s:3483:"
+    ";s:4:"file";s:72:"/home/adhityairvan/Documents/Kuliah/pbkk/FP/app/views/template/base.volt";s:4:"line";i:21;}}i:2;s:3479:"
 </head>
 <body id="page-top">
 
@@ -47,7 +47,7 @@ a:11:{i:0;s:307:"<!DOCTYPE html>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/transaction/list">
+        <a class="nav-link" href="/transaction/">
             <i class="fas fa-fw fa-list-alt"></i>
             <span>Transaction List</span></a>
     </li>

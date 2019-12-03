@@ -47,7 +47,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/transaction/list">
+        <a class="nav-link" href="/transaction/">
             <i class="fas fa-fw fa-list-alt"></i>
             <span>Transaction List</span></a>
     </li>

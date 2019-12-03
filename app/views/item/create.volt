@@ -4,7 +4,7 @@
 {% block body %}
     <div class="row">
         <div class="col-md-12">
-            {{ flashSession.output() }}
+            {{ partial('partials/flash') }}
             <form method="post" action="{{ url('item/new') }}" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nama_barang">Nama Barang</label>

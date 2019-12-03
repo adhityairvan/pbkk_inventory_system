@@ -76,7 +76,7 @@ class Guard
         $controller = $dispatcher->getControllerName();
         $action     = $dispatcher->getActionName();
 
-        if($controller == 'auth' and $role != 'Guests'){
+        if($controller == 'auth' and $role != 'Guests' and $action != 'logout'){
             $dispatcher->forward([
                 'controller' => 'item',
                 'action' => 'index'

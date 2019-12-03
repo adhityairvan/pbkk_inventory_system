@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Forms\LoginForm;
 use App\Forms\RegisterForm;
-use App\Libraries\Auth;
 use App\Models\Users;
 
 class AuthController extends ControllerBase
@@ -57,7 +56,8 @@ class AuthController extends ControllerBase
     }
 
     public function logoutAction(){
-        $this->auth->destroy();
+        $auth = $this->auth;
+        $this->di->getShared('auth')->destroy();
         return $this->response->redirect('/login');
     }
 

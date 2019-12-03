@@ -21,15 +21,22 @@ $resources = [
         'update',
         'delete',
         'listItem',
+
     ],
     'transaction' => [
         'index',
         'create',
         'store',
         'delete',
+
     ],
     'home' => [
         'index',
+    ],
+    'user' => [
+        'index',
+        'delete',
+        'create',
     ]
 ];
 
@@ -44,6 +51,9 @@ $allowed = [
         ],
     ],
     'Karyawan' => [
+        'auth' => [
+            'logout',
+        ],
         'item' => [
             'index',
             'create',
@@ -56,12 +66,21 @@ $allowed = [
             'create',
             'store',
         ],
+        'user' => [
+            'index',
+        ]
     ],
     'Pemilik' => [
+        'auth' => [
+            'logout',
+        ],
         'item' => [
             '*',
         ],
         'transaction' => [
+            '*'
+        ],
+        'user' => [
             '*'
         ]
     ]

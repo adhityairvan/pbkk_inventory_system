@@ -38,6 +38,7 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Registration Form</h1>
                                 </div>
+                                {{ partial('partials/flash') }}
                                 <form class="user" action="/register" method="post">
                                     <div class="form-group">
                                         {{ registerForm.render('email')}}

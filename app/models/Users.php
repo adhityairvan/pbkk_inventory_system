@@ -74,6 +74,8 @@ class Users extends \Phalcon\Mvc\Model
     {
         $this->setSchema("pbkk_fp");
         $this->setSource("users");
+        $this->hasMany('id', Transactions::class, 'created_by', ['alias' => 'Transactions']);
+
     }
 
     /**
