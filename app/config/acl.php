@@ -37,6 +37,12 @@ $resources = [
         'index',
         'delete',
         'create',
+    ],
+    'kategori' => [
+        'index',
+        'delete',
+        'list',
+        'create',
     ]
 ];
 
@@ -68,6 +74,9 @@ $allowed = [
         ],
         'user' => [
             'index',
+        ],
+        'kategori' => [
+            'index'
         ]
     ],
     'Pemilik' => [
@@ -78,6 +87,9 @@ $allowed = [
             '*',
         ],
         'transaction' => [
+            '*'
+        ],
+        'kategori' => [
             '*'
         ],
         'user' => [

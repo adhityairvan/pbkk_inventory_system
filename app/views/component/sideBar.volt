@@ -25,6 +25,7 @@
             <span>Transaction List</span></a>
     </li>
 
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -38,6 +39,11 @@
         <a class="nav-link" href="/item">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Item</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/kategori/">
+            <i class="fas fa-fw fa-list-alt"></i>
+            <span>Category</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="/user">

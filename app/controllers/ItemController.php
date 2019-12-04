@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Controllers;
-use App\Forms\ItemForm;
 use App\Controllers\ControllerBase as Controller;
+use App\Forms\ItemForm;
 use App\Models\Items;
+use App\Models\Kategori;
 
 class ItemController extends Controller
 {
@@ -27,12 +28,12 @@ class ItemController extends Controller
         $files = $this->request->getUploadedFiles();
         $file = $files[0];
 
-        $file->moveTo('files'.$file->getName());
+        $file->moveTo('files/'.$file->getName());
 
         $item = new Items();
-        $item->nama_barang =$this->request->getPost('namaBarang');
-        $item->harga_barang = $this->request->getPost('hargaBarang');
-        $item->tipe_barang = $this->request->getPost('tipeBarang');
+        $item->nama_barang =$this->request->getPost('nama_barang');
+        $item->harga_barang = $this->request->getPost('harga_barang');
+        $item->kategori_id = $this->request->getPost('tipe_barang');
         $item->stock = $this->request->getPost('stock');
         $item->image = 'files/'.$file->getName();
 
@@ -92,7 +93,7 @@ class ItemController extends Controller
         return;
     }
 
-    private function deleteAction($id){
+    public function deleteAction($id){
         if ($this->request->isPost()) {
             if (!$this->security->checkToken()) {
                 $this->flashSession->error("Request expired");
@@ -104,6 +105,7 @@ class ItemController extends Controller
             $this->flashSession->error("WRONG ID");
             return $this->_redirectBack();
         }
+        unlink($item->image);
         $item->delete();
         $this->response->redirect('/item');
         return ;
@@ -111,10 +113,8 @@ class ItemController extends Controller
     }
 
     public function listItemAction($category){
-        $item = Items::find([
-            'conditions' => "tipe_barang='".$category."'",
-            'columns' => 'id, nama_barang, harga_barang'
-        ]);
+        $kategori = Kategori::findFirst($kategori);
+        $item = $kategori->Items;
         $this->view->disable();
         return json_encode($item);
     }

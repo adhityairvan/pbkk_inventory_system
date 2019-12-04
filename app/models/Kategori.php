@@ -1,11 +1,12 @@
 <?php
+
+
 namespace App\Models;
 
-use Carbon\Carbon;
+use Phalcon\Mvc\Model\Relation;
 
-class Items extends \Phalcon\Mvc\Model
+class Kategori extends \Phalcon\Mvc\Model
 {
-
     /**
      *
      * @var integer
@@ -16,29 +17,7 @@ class Items extends \Phalcon\Mvc\Model
      *
      * @var string
      */
-    public $nama_barang;
-
-    public $kategori_id;
-
-    /**
-     *
-     * @var integer
-     */
-    public $harga_barang;
-
-    /**
-     *
-     * @var integer
-     */
-    public $stock;
-
-    /**
-     *
-     * @var string
-     */
-    public $image;
-
-    public $tipe_barang;
+    public $nama_kategori;
 
     /**
      * Initialize method for model.
@@ -46,8 +25,13 @@ class Items extends \Phalcon\Mvc\Model
     public function initialize()
     {
         $this->setSchema("pbkk_fp");
-        $this->setSource("items");
-        $this->belongsTo('kategori_id', Kategori::class, 'id', ['alias' => 'Kategori']);
+        $this->setSource('kategori');
+        $this->hasMany('id', Items::class, 'kategori_id', [
+            'alias' => 'Items',
+            'foreignKey' => [
+                'action' => Relation::ACTION_CASCADE
+            ]
+        ]);
     }
 
     /**
@@ -57,7 +41,7 @@ class Items extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'items';
+        return 'kategori';
     }
 
     /**
@@ -81,14 +65,4 @@ class Items extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
-
-    public function beforeCreate() {
-        $this->created_at = Carbon::now();
-        $this->updated_at = Carbon::now();
-    }
-
-    public function beforeUpdate() {
-        $this->updated_at = Carbon::now();
-    }
-
 }

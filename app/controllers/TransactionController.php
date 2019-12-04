@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Controllers\ControllerBase as Controller;
+use App\Models\Kategori;
 use App\Models\Transactions;
 use App\Models\TransactionsItem;
 
@@ -15,7 +16,7 @@ class TransactionController extends Controller
     }
 
     public function createAction(){
-
+        $this->view->kategories = Kategori::find();
     }
 
     public function storeAction(){

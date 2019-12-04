@@ -1,5 +1,8 @@
 {% extends 'template/base.volt' %}
 {% block title %}Transactions{% endblock %}
+{% block css %}
+    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+{% endblock %}
 {% block title_body %}Shop's Transactions{% endblock %}
 {% block body %}
     <div class="row">
@@ -13,10 +16,9 @@
                     <label for="tipeBarang">Tipe Barang</label>
                     <select class="form-control" id="tipeBarang" name="tipeBarang" v-model="tipeBarang">
                         <option value="" disabled></option>
-                        <option value="minuman">Minuman</option>
-                        <option value="makanan">Makanan</option>
-                        <option value="snack">Snack</option>
-                        <option value="rokok">Rokok</option>
+                        {% for kategori in kategories %}
+                        <option value="{{ kategori.id }}">{{ kategori.nama_kategori }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="form-group col" id="wraperBarang">

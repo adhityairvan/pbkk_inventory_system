@@ -2,15 +2,15 @@
 
 
 namespace App\Forms;
+use App\Models\Kategori;
 use Phalcon\Forms\Element\File;
 use Phalcon\Forms\Element\Numeric;
 use Phalcon\Forms\Element\Select;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Form;
-use Phalcon\Validation\Validator\Alnum;
 use Phalcon\Validation\Validator\Digit;
-use Phalcon\Validation\Validator\InclusionIn;
 use Phalcon\Validation\Validator\PresenceOf;
+
 class ItemForm extends Form
 {
     public function initialize() {
@@ -36,21 +36,17 @@ class ItemForm extends Form
         $gambar->addValidator(new \Phalcon\Validation\Validator\File([
             'allowEmpty' => true
         ]));
-        $tipeBarang = new Select('tipe_barang', [
-            'minuman' => 'Minuman',
-            'makanan' => 'Makanan',
-            'snack' => 'Snack',
-            'rokok' => 'Rokok'
-        ],[
+        $tipeBarang = new Select('tipe_barang', Kategori::find(),[
+            'using' => [
+                'id',
+                'nama_kategori',
+            ],
             'class' => 'form-control',
             'useEmpty'   => true,
             'emptyText'  => 'Select one...',
             'emptyValue' => '',
         ]);
         $tipeBarang->addValidator(new PresenceOf());
-        $tipeBarang->addValidator(new InclusionIn([
-            'domain' => ['minuman', 'makanan', 'snack', 'rokok']
-        ]));
 
         $this->add($namaBarang);
         $this->add($hargaBarang);
