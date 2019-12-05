@@ -3,6 +3,7 @@
 {% block title_body %}Shop's Item List{% endblock %}
 {% block body %}
     <div class="row">
+        {{ partial('partials/flash') }}
         <div class="col-md-3">
             <a href="item/create" class="btn btn-primary btn-block">Create New</a>
         </div>

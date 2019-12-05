@@ -52,6 +52,7 @@ class ItemController extends Controller
         $item->stock = $this->request->getPost('stok');
         $item->save();
 
+        $this->flashSession->success('Success updating stock data');
         return $this->response->redirect('/item');
     }
 
